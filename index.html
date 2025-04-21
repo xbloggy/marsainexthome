@@ -1,129 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekti i grupit "Next Home"</title>
-    <style>
-        /* Overall page styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1D2026; /* Darker background for a premium look */
-            color: #E0E0E0;
-            text-align: center;
-            padding: 50px;
-            margin: 0;
-        }
-
-        h1 {
-            color: #F5A623;
-            font-size: 40px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .container {
-            background-color: #2D353F; /* Darker container */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
-            max-width: 600px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-
-        .container:hover {
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6); /* Hover effect for a refined feel */
-        }
-
-        p {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #B0B0B0;
-            line-height: 1.6;
-        }
-
-        a {
-            display: inline-block;
-            padding: 14px 30px;
-            background-color: #F5A623;
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        a:hover {
-            background-color: #FF8A00;
-            transform: scale(1.1);
-        }
-
-        a:active {
-            background-color: #D47C1F;
-        }
-
-        /* Fade-in effect for footer */
-        .footer {
-            font-size: 12px;
-            color: #B0B0B0;
-            margin-top: 40px;
-            background-color: #1A1A1A; /* Dark background */
-            padding: 15px 0;
-            opacity: 0; /* Initially invisible */
-            animation: fadeIn 3s ease-in-out forwards; /* Apply the fade-in animation */
-        }
-
-        /* Keyframes for the fade-in animation */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive styling for mobile view */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
-
-            .container {
-                padding: 25px;
-            }
-
-            a {
-                padding: 12px 25px;
-                font-size: 18px;
-            }
-
-            .footer {
-                font-size: 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart AI Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .transition-theme {
+      transition: background-color 0.5s, color 0.5s;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white font-sans transition-theme" id="body">
 
-    <h1>Mirë se vini në faqen tonë të bot-it</h1>
-    
-    <div class="container">
-        <p>Shtypni butonin me poshte te shkoni ne faqen e AI-it:</p>
-        <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/01/19/20250301195959-44MADPHB.json" target="_blank">Vizitoni Websitin</a>
+  <!-- Header -->
+  <header class="p-6 flex items-center justify-between bg-gray-800 shadow-lg">
+    <h1 class="text-3xl font-bold text-cyan-400">Smart AI Hub</h1>
+    <div class="flex items-center gap-4">
+      <nav class="space-x-4 hidden md:block">
+        <a href="#home" class="hover:text-cyan-400">Home</a>
+        <a href="#features" class="hover:text-cyan-400">AI Features</a>
+        <a href="#chatbot" class="hover:text-cyan-400">Chatbot</a>
+      </nav>
+      <button id="themeToggle" class="bg-gray-700 hover:bg-gray-600 p-2 rounded-xl text-sm">
+        Toggle Theme
+      </button>
     </div>
+  </header>
 
-    <div class="footer">
-        <p>Kredite per Botpress qe realizoi krijimin e inteligjences artificiale.</p>
-        <p>Krijuar nga grupi "Next Home" me dashuri</p>
-        <p>Shkolla Omiros</p>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Talk to AI That Understands You</h2>
+    <p class="text-lg text-gray-300 max-w-xl mb-8">Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.</p>
+    <a href="#features" class="px-6 py-3 bg-cyan-500 text-white rounded-xl hover:bg-cyan-600 transition-all">
+      Explore Features
+    </a>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-950 text-center px-4">
+    <h3 class="text-3xl font-bold mb-8 text-cyan-400">What Do You Want to Do?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 class="text-xl font-semibold text-white mb-2">Homework Help</h4>
+        <p class="text-gray-400">Get answers, explanations, and step-by-step help from AI.</p>
+      </a>
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 class="text-xl font-semibold text-white mb-2">Creative Mode</h4>
+        <p class="text-gray-400">Generate stories, ideas, and fun content with your AI companion.</p>
+      </a>
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 class="text-xl font-semibold text-white mb-2">Random Talk</h4>
+        <p class="text-gray-400">Just vibe, joke, or talk nonsense with your personal AI buddy.</p>
+      </a>
     </div>
+  </section>
+
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="py-20 bg-gray-900 text-center px-4">
+    <h3 class="text-3xl font-bold mb-4 text-cyan-400">Your AI Is Ready</h3>
+    <p class="text-gray-300 mb-10">Start chatting below. It’s fast, responsive, and available 24/7.</p>
+
+    <!-- Botpress Widget Embed Area -->
+    <div class="w-full max-w-2xl mx-auto bg-gray-800 rounded-2xl p-6 shadow-xl">
+      <p class="text-gray-400 italic">[Insert your Botpress embed code here]</p>
+      <!-- Example placeholder -->
+      <div class="mt-4 bg-gray-700 rounded-xl p-6 text-sm text-gray-300">
+        Botpress chatbot goes here. Users can interact right on the page.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center p-6 text-gray-400">
+    Made by [Your Name] • Powered by Botpress
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    toggle.addEventListener('click', () => {
+      htmlEl.classList.toggle('dark');
+      document.body.classList.toggle('bg-gray-100');
+      document.body.classList.toggle('text-gray-900');
+    });
+  </script>
 
 </body>
 </html>
