@@ -49,6 +49,35 @@
     <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
   </div>
 
+ /* Astronaut Object Animation */
+    .astro {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      width: 80px;
+      height: 80px;
+      z-index: 50;
+      animation: orbit 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes orbit {
+      0% {
+        transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans transition-theme" id="body">
+
+  <!-- Astronaut Flying Object -->
+  <div class="astro">
+    <img src="https://i.ibb.co/sdJN5JKw/1000008058-removebg-preview.webp" alt="Flying Astro" class="w-full h-full object-contain">
+  </div>
+
   <!-- Header -->
   <header class="p-6 flex items-center justify-between bg-gray-800 shadow-lg">
     <div class="flex items-center gap-3">
