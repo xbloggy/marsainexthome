@@ -20,8 +20,17 @@
       transition: background-color 0.5s, color 0.5s;
     }
 
-    /* Mars Object Animation */
-    .mars-fly {
+    /* Common Orbit Animation */
+    @keyframes orbit {
+      0% {
+        transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
+      }
+    }
+
+    .mars-fly, .astro {
       position: fixed;
       top: 10%;
       left: 50%;
@@ -30,15 +39,6 @@
       z-index: 50;
       animation: orbit 20s linear infinite;
       pointer-events: none;
-    }
-
-    @keyframes orbit {
-      0% {
-        transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
-      }
-      100% {
-        transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
-      }
     }
   </style>
 </head>
@@ -48,30 +48,6 @@
   <div class="mars-fly">
     <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
   </div>
-
- /* Astronaut Object Animation */
-    .astro {
-      position: fixed;
-      top: 10%;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-      z-index: 50;
-      animation: orbit 20s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes orbit {
-      0% {
-        transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
-      }
-      100% {
-        transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
-      }
-    }
-  </style>
-</head>
-<body class="bg-gray-900 text-white font-sans transition-theme" id="body">
 
   <!-- Astronaut Flying Object -->
   <div class="astro">
@@ -151,32 +127,73 @@
 
   <!-- Language Switch Script -->
   <script>
-    const languageSwitch = document.getElementById('languageSwitch');
+  const languageSwitch = document.getElementById('languageSwitch');
+  let currentLanguage = 'en';
 
-    const changeLanguage = (lang) => {
-      const texts = {
-        en: {
-          title: "Mars AI * Next Home",
-          homeLink: "Home",
-          featuresLink: "AI Features",
-          chatbotLink: "Chatbot",
-          heroTitle: "Talk to AI That Understands You",
-          heroText: "Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.",
-          featuresTitle: "What Do You Want to Do?",
-          infoTitle: "Information",
-          infoText: "Get answers, explanations, and step-by-step help from AI.",
-          creativeTitle: "Creative Mode",
-          creativeText: "Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.",
-          randomTitle: "Random Talk",
-          randomText: "Just vibe, joke, or talk nonsense with your personal Mars AI buddy.",
-          chatbotTitle: "Your AI Is Ready",
-          chatbotText: "Start chatting below. It’s fast, responsive, and available 24/7.",
-          footerText: "Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros"
-        },
-        al: {
-          title: "Mars AI * Shtëpia e Re",
-          homeLink: "Kryefaqja",
-          featuresLink: "Karakteristikat e AI",
-          chatbotLink: "Chatbot",
-          heroTitle: "Flisni me AI që ju kupton",
-          heroText: "Zgjidhni si dëshironi të ndërveproni — argëtues, ndihmues, ose
+  const translations = {
+    en: {
+      title: "Mars AI * Next Home",
+      homeLink: "Home",
+      featuresLink: "AI Features",
+      chatbotLink: "Chatbot",
+      heroTitle: "Talk to AI That Understands You",
+      heroText: "Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.",
+      featuresTitle: "What Do You Want to Do?",
+      infoTitle: "Information",
+      infoText: "Get answers, explanations, and step-by-step help from AI.",
+      creativeTitle: "Creative Mode",
+      creativeText: "Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.",
+      randomTitle: "Random Talk",
+      randomText: "Just vibe, joke, or talk nonsense with your personal Mars AI buddy.",
+      chatbotTitle: "Your AI Is Ready",
+      chatbotText: "Start chatting below. It’s fast, responsive, and available 24/7.",
+      footerText: "Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros"
+    },
+    al: {
+      title: "Mars AI * Shtëpia e Re",
+      homeLink: "Kryefaqja",
+      featuresLink: "Veçoritë e AI",
+      chatbotLink: "Chatbot",
+      heroTitle: "Fol me AI që të kupton",
+      heroText: "Zgjidh si dëshiron të ndërveprosh — argëtues, ndihmues, ose thjesht i çuditshëm. Mundësuar nga Botpress.",
+      featuresTitle: "Çfarë dëshiron të bësh?",
+      infoTitle: "Informacion",
+      infoText: "Merr përgjigje, shpjegime dhe ndihmë hap pas hapi nga AI.",
+      creativeTitle: "Mënyra Krijuese",
+      creativeText: "Gjenero tregime, ide dhe përmbajtje argëtuese për astronominë ose tema të ndryshme me AI.",
+      randomTitle: "Bisedë e Rastësishme",
+      randomText: "Vetëm bisedo, bëj shaka, ose flisni gjëra të çuditshme me shokun tënd Mars AI.",
+      chatbotTitle: "AI-ja jote është gati",
+      chatbotText: "Fillo bisedën më poshtë. Është e shpejtë, reaguese dhe e disponueshme 24/7.",
+      footerText: "Krijuar nga grupi Shtëpia e Re • Mundësuar nga Botpress • Shkolla 9-vjeçare Omiros"
+    }
+  };
+
+  function updateTexts(lang) {
+    const t = translations[lang];
+    document.getElementById('title').innerText = t.title;
+    document.getElementById('homeLink').innerText = t.homeLink;
+    document.getElementById('featuresLink').innerText = t.featuresLink;
+    document.getElementById('chatbotLink').innerText = t.chatbotLink;
+    document.getElementById('heroTitle').innerText = t.heroTitle;
+    document.getElementById('heroText').innerText = t.heroText;
+    document.getElementById('featuresTitle').innerText = t.featuresTitle;
+    document.getElementById('infoTitle').innerText = t.infoTitle;
+    document.getElementById('infoText').innerText = t.infoText;
+    document.getElementById('creativeTitle').innerText = t.creativeTitle;
+    document.getElementById('creativeText').innerText = t.creativeText;
+    document.getElementById('randomTitle').innerText = t.randomTitle;
+    document.getElementById('randomText').innerText = t.randomText;
+    document.getElementById('chatbotTitle').innerText = t.chatbotTitle;
+    document.getElementById('chatbotText').innerText = t.chatbotText;
+    document.getElementById('footerText').innerText = t.footerText;
+  }
+
+  languageSwitch.addEventListener('click', () => {
+    currentLanguage = currentLanguage === 'en' ? 'al' : 'en';
+    updateTexts(currentLanguage);
+  });
+
+  // Optional: Set initial language
+  updateTexts(currentLanguage);
+</script>
