@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mars AI Hub</title>
+  <title>Mars AI Explorer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -15,187 +15,97 @@
       scroll-behavior: smooth;
       transition: background-color 0.3s, color 0.3s;
     }
-
-    .transition-theme {
-      transition: background-color 0.5s, color 0.5s;
-    }
-
-    @keyframes orbit {
-      0% {
-        transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
-      }
-      100% {
-        transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
-      }
-    }
-
-    .mars-fly, .astro {
-      position: fixed;
-      top: 10%;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-      z-index: 50;
-      animation: orbit 20s linear infinite;
-      pointer-events: none;
+    [data-lang][hidden] {
+      display: none;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-sans transition-theme relative">
-
-  <!-- Blurred Background Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md z-0"></div>
-
-  <!-- Mars Flying Object -->
-  <div class="mars-fly z-10">
-    <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
-  </div>
-
-  <!-- Astronaut Flying Object -->
-  <div class="astro z-10">
-    <img src="https://i.ibb.co/sdJN5JKw/1000008058-removebg-preview.webp" alt="Flying Astro" class="w-full h-full object-contain">
-  </div>
+<body class="bg-black text-white">
 
   <!-- Header -->
-  <header class="p-6 flex items-center justify-between bg-gray-800 shadow-lg relative z-10">
-    <div class="flex items-center gap-3">
-      <img src="https://i.ibb.co/4ggS9z37/IMG-20250506-WA0001.webp" alt="Mars Static" class="w-10 h-10 object-cover rounded-full">
-      <h1 id="title" class="text-3xl font-bold text-orange-400">Mars AI * Next Home</h1>
+  <header class="p-6 flex items-center justify-between bg-gray-800 shadow-lg">
+    <div class="flex items-center space-x-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/200px-OSIRIS_Mars_true_color.jpg" alt="Mars" class="w-10 h-10 rounded-full border border-red-400" />
+      <h1 class="text-3xl font-bold text-red-400">Mars AI Explorer</h1>
     </div>
-    <div class="flex items-center gap-4">
-      <nav class="space-x-4 hidden md:block">
-        <a href="#home" class="hover:text-orange-400" id="homeLink">Home</a>
-        <a href="#features" class="hover:text-orange-400" id="featuresLink">AI Features</a>
-        <a href="#chatbot" class="hover:text-orange-400" id="chatbotLink">Chatbot</a>
-      </nav>
-      <a href="https://xbloggy.github.io/marsai/#overview" target="_blank" class="bg-orange-500 hover:bg-orange-600 p-2 rounded-xl text-sm text-white">
-        About Us
-      </a>
-      <button id="languageSwitch" class="bg-orange-500 hover:bg-orange-600 p-2 rounded-xl text-sm text-white">
-        Switch Language
-      </button>
+    <div class="flex items-center space-x-4">
+      <a href="#overview" class="hover:text-red-400" data-lang="en">Overview</a>
+      <a href="#overview" class="hover:text-red-400" data-lang="sq" hidden>Përmbledhje</a>
+      <a href="#data" class="hover:text-red-400" data-lang="en">Mars Data</a>
+      <a href="#data" class="hover:text-red-400" data-lang="sq" hidden>Të dhënat e Marsit</a>
+      <a href="#learn" class="hover:text-red-400" data-lang="en">Learn AI</a>
+      <a href="#learn" class="hover:text-red-400" data-lang="sq" hidden>Mëso AI</a>
+      <a href="#about" class="hover:text-red-400" data-lang="en">About</a>
+      <a href="#about" class="hover:text-red-400" data-lang="sq" hidden>Rreth Projektit</a>
     </div>
+    <!-- Language Switcher -->
+    <select id="languageSwitch" class="bg-gray-700 text-white px-2 py-1 rounded-md text-sm">
+      <option value="en">🇬🇧 English</option>
+      <option value="sq">🇦🇱 Shqip</option>
+    </select>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10">
-    <h2 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">Talk to AI That Understands You</h2>
-    <p id="heroText" class="text-lg text-gray-300 max-w-xl mb-8">Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.</p>
-    <a href="#features" class="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all">
-      Explore Features
+  <section id="overview" class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+    <h2 class="text-5xl font-bold mb-4 text-red-400" data-lang="en">Explore the Red Planet with AI</h2>
+    <h2 class="text-5xl font-bold mb-4 text-red-400" data-lang="sq" hidden>Eksploro Planetin e Kuq me AI</h2>
+    <p class="text-lg text-gray-300 max-w-2xl mb-6" data-lang="en">Dive into Mars exploration data, analyze patterns, and simulate life on Mars using intelligent tools.</p>
+    <p class="text-lg text-gray-300 max-w-2xl mb-6" data-lang="sq" hidden>Zhytu në të dhënat për Marsin, analizo modele dhe simulo jetën në Mars duke përdorur mjete të zgjuara.</p>
+    <a href="#data" class="px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all" data-lang="en">Start Exploring</a>
+    <a href="#data" class="px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all" data-lang="sq" hidden>Fillo Eksplorimin</a>
+  </section>
+
+  <!-- Kahoot Button Section -->
+  <section class="py-10 text-center bg-gray-900">
+    <h3 class="text-2xl font-bold text-red-400 mb-4" data-lang="en">Test Your Mars Knowledge</h3>
+    <h3 class="text-2xl font-bold text-red-400 mb-4" data-lang="sq" hidden>Testo Njohuritë për Marsin</h3>
+    <a href="https://kahoot.it/challenge/06934295?challenge-id=10e0e601-265a-4649-8914-e6e210d91cba_1746781045186" target="_blank" class="inline-block px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all">
+      Play the Mars Quiz
+    </a>
+    <a href="https://kahoot.it/challenge/06934295?challenge-id=10e0e601-265a-4649-8914-e6e210d91cba_1746781045186" target="_blank" class="inline-block px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all" hidden data-lang="sq">
+      Luaj Kuizin për Marsin
     </a>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="py-20 bg-gray-950 text-center px-4 relative z-10">
-    <h3 id="featuresTitle" class="text-3xl font-bold mb-8 text-orange-400">What Do You Want to Do?</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
-        <h4 id="infoTitle" class="text-xl font-semibold text-white mb-2">Information</h4>
-        <p id="infoText" class="text-gray-400">Get answers, explanations, and step-by-step help from AI.</p>
-      </a>
-      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
-        <h4 id="creativeTitle" class="text-xl font-semibold text-white mb-2">Creative Mode</h4>
-        <p id="creativeText" class="text-gray-400">Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.</p>
-      </a>
-      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
-        <h4 id="randomTitle" class="text-xl font-semibold text-white mb-2">Random Talk</h4>
-        <p id="randomText" class="text-gray-400">Just vibe, joke, or talk nonsense with your personal Mars AI buddy.</p>
-      </a>
+  <!-- Data Section -->
+  <section id="data" class="py-20 bg-gray-950 text-center px-4">
+    <h3 class="text-3xl font-bold mb-8 text-red-400" data-lang="en">Mars Data Insights</h3>
+    <h3 class="text-3xl font-bold mb-8 text-red-400" data-lang="sq" hidden>Përceptime mbi të Dhënat e Marsit</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition">
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="en">Surface Maps</h4>
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="sq" hidden>Hartat Sipërfaqësore</h4>
+        <p class="text-gray-400" data-lang="en">View topographic and geological data of Mars captured by satellites.</p>
+        <p class="text-gray-400" data-lang="sq" hidden>Shiko të dhënat topografike dhe gjeologjike të Marsit nga satelitët.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition">
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="en">Climate Models</h4>
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="sq" hidden>Modelet Klimatike</h4>
+        <p class="text-gray-400" data-lang="en">Analyze temperature shifts, dust storms, and seasonal cycles on Mars.</p>
+        <p class="text-gray-400" data-lang="sq" hidden>Analizo ndryshimet e temperaturës, stuhitë e pluhurit dhe ciklet sezonale në Mars.</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:bg-gray-700 transition">
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="en">AI Simulations</h4>
+        <h4 class="text-xl font-semibold text-white mb-2" data-lang="sq" hidden>Simulime me AI</h4>
+        <p class="text-gray-400" data-lang="en">Use AI to simulate colonization, habitats, and survival strategies.</p>
+        <p class="text-gray-400" data-lang="sq" hidden>Përdor AI për të simuluar kolonizimin, habitatet dhe strategjitë e mbijetesës.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Chatbot Section -->
-  <section id="chatbot" class="py-20 bg-gray-900 text-center px-4 relative z-10">
-    <h3 id="chatbotTitle" class="text-3xl font-bold mb-4 text-orange-400">Your AI Is Ready</h3>
-    <p id="chatbotText" class="text-gray-300 mb-10">Start chatting below. It’s fast, responsive, and available 24/7.</p>
-
-    <div class="w-full max-w-2xl mx-auto bg-gray-800 rounded-2xl p-6 shadow-xl">
-      <iframe
-        src="https://cdn.botpress.cloud/webchat/v2.4/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/01/19/20250301195959-44MADPHB.json"
-        width="100%" height="500"
-        class="rounded-xl border-0"
-        allow="clipboard-write"
-      ></iframe>
-    </div>
+  <!-- Learning Section -->
+  <section id="learn" class="py-20 bg-gray-900 text-center px-4">
+    <h3 class="text-3xl font-bold mb-6 text-red-400" data-lang="en">Learn How AI Helps Mars Research</h3>
+    <h3 class="text-3xl font-bold mb-6 text-red-400" data-lang="sq" hidden>Mëso Si Ndihmon AI në Kërkimet për Marsin</h3>
+    <p class="text-gray-300 max-w-xl mx-auto mb-8" data-lang="en">Step-by-step guides, open datasets, and interactive tools to help you learn machine learning and apply it to Martian data.</p>
+    <p class="text-gray-300 max-w-xl mx-auto mb-8" data-lang="sq" hidden>Udhëzues hap pas hapi, të dhëna të hapura dhe mjete interaktive për të mësuar AI dhe për ta aplikuar në të dhënat e Marsit.</p>
+    <a href="https://www.kaggle.com/datasets?search=mars" target="_blank" class="px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all" data-lang="en">View Mars Datasets</a>
+    <a href="https://www.kaggle.com/datasets?search=mars" target="_blank" class="px-6 py-3 bg-red-500 text-white rounded-xl hover:bg-red-600 transition-all" data-lang="sq" hidden>Shiko Datasetet për Marsin</a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-center p-6 text-gray-400 relative z-10">
-    <p id="footerText">Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros</p>
-  </footer>
-
-  <!-- Language Switch Script -->
-  <script>
-    const languageSwitch = document.getElementById('languageSwitch');
-    let currentLanguage = 'en';
-
-    const translations = {
-      en: {
-        title: "Mars AI * Next Home",
-        homeLink: "Home",
-        featuresLink: "AI Features",
-        chatbotLink: "Chatbot",
-        heroTitle: "Talk to AI That Understands You",
-        heroText: "Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.",
-        featuresTitle: "What Do You Want to Do?",
-        infoTitle: "Information",
-        infoText: "Get answers, explanations, and step-by-step help from AI.",
-        creativeTitle: "Creative Mode",
-        creativeText: "Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.",
-        randomTitle: "Random Talk",
-        randomText: "Just vibe, joke, or talk nonsense with your personal Mars AI buddy.",
-        chatbotTitle: "Your AI Is Ready",
-        chatbotText: "Start chatting below. It’s fast, responsive, and available 24/7.",
-        footerText: "Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros"
-      },
-      al: {
-        title: "Mars AI * Shtëpia e Re",
-        homeLink: "Kryefaqja",
-        featuresLink: "Veçoritë e AI",
-        chatbotLink: "Chatbot",
-        heroTitle: "Fol me AI që të kupton",
-        heroText: "Zgjidh si dëshiron të ndërveprosh — argëtues, ndihmues, ose thjesht i çuditshëm. Mundësuar nga Botpress.",
-        featuresTitle: "Çfarë dëshiron të bësh?",
-        infoTitle: "Informacion",
-        infoText: "Merr përgjigje, shpjegime dhe ndihmë hap pas hapi nga AI.",
-        creativeTitle: "Mënyra Krijuese",
-        creativeText: "Gjenero tregime, ide dhe përmbajtje argëtuese për astronominë ose tema të ndryshme me AI.",
-        randomTitle: "Bisedë e Rastësishme",
-        randomText: "Vetëm bisedo, bëj shaka, ose flisni gjëra të çuditshme me shokun tënd Mars AI.",
-        chatbotTitle: "AI-ja jote është gati",
-        chatbotText: "Fillo bisedën më poshtë. Është e shpejtë, reaguese dhe e disponueshme 24/7.",
-        footerText: "Krijuar nga grupi Shtëpia e Re • Mundësuar nga Botpress • Shkolla 9-vjeçare Omiros"
-      }
-    };
-
-    function updateTexts(lang) {
-      const t = translations[lang];
-      document.getElementById('title').innerText = t.title;
-      document.getElementById('homeLink').innerText = t.homeLink;
-      document.getElementById('featuresLink').innerText = t.featuresLink;
-      document.getElementById('chatbotLink').innerText = t.chatbotLink;
-      document.getElementById('heroTitle').innerText = t.heroTitle;
-      document.getElementById('heroText').innerText = t.heroText;
-      document.getElementById('featuresTitle').innerText = t.featuresTitle;
-      document.getElementById('infoTitle').innerText = t.infoTitle;
-      document.getElementById('infoText').innerText = t.infoText;
-      document.getElementById('creativeTitle').innerText = t.creativeTitle;
-      document.getElementById('creativeText').innerText = t.creativeText;
-      document.getElementById('randomTitle').innerText = t.randomTitle;
-      document.getElementById('randomText').innerText = t.randomText;
-      document.getElementById('chatbotTitle').innerText = t.chatbotTitle;
-      document.getElementById('chatbotText').innerText = t.chatbotText;
-      document.getElementById('footerText').innerText = t.footerText;
-    }
-
-    languageSwitch.addEventListener('click', () => {
-      currentLanguage = currentLanguage === 'en' ? 'al' : 'en';
-      updateTexts(currentLanguage);
-    });
-
-    updateTexts(currentLanguage);
-  </script>
-</body>
-</html>
-
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-950 text-center px-4">
+    <h3 class="text-3xl font-bold mb-4 text-red-400" data-lang="en">About This Project</h3>
+    <h3 class="text-3xl font-bold mb-4 text-red-400" data-lang="sq" hidden>Rreth Këtij Projekti</h3>
+    <p class="text-gray-400 max-w-2xl mx-auto" data-lang="en">Mars AI Explorer is a student-led initiative that combines curiosity about space with the power of artificial intelligence. Our goal is to make Mars data more accessible and fun to explore.</p>
+    <p class="text-gray-400 max-w-2xl mx-auto" data-lang="sq" hidden>Mars AI Explorer është një nismë e drejtuar nga nxënës që kombinon kureshtjen për hapësirën me fuqinë e inteligjencës artificiale. Qëllimi ynë është të bëjmë të dhënat e Mars
