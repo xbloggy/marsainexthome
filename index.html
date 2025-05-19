@@ -15,7 +15,6 @@
       scroll-behavior: smooth;
       transition: background-color 0.3s, color 0.3s;
     }
-
     .transition-theme {
       transition: background-color 0.5s, color 0.5s;
     }
@@ -41,26 +40,21 @@
     }
   </style>
 </head>
-<body class="text-white font-sans transition-theme relative" style="background-image: url('https://i.ibb.co/cSfThcCY/images-3.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
-
+<body class="text-white font-sans transition-theme relative" style="background-image: url('https://i.ibb.co/zhMFB2pC/IMG-20250519-WA0002.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
   <!-- Blurred Background Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md z-0"></div>
-
   <!-- Mars Flying Object -->
   <div class="mars-fly z-10">
     <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
   </div>
-
   <!-- Astronaut Flying Object -->
   <div class="astro z-10">
     <img src="https://i.ibb.co/sdJN5JKw/1000008058-removebg-preview.webp" alt="Flying Astro" class="w-full h-full object-contain">
   </div>
-
   <!-- Header -->
   <header class="p-6 flex items-center justify-between bg-gray-800 bg-opacity-80 shadow-lg relative z-10">
     <div class="flex items-center gap-3">
-      <img src="https://i.ibb.co/zhMFB2pC/IMG-20250519-WA0002.webp" alt="Mars Image 1" class="w-10 h-10 object-cover rounded-full">
-      <img src="https://i.ibb.co/QzsgnyX/IMG-20250519-WA0003.webp" alt="Mars Image 2" class="w-10 h-10 object-cover rounded-full">
+      <img src="https://i.ibb.co/4ggS9z37/IMG-20250506-WA0001.webp" alt="Mars Static" class="w-10 h-10 object-cover rounded-full">
       <h1 id="title" class="text-3xl font-bold text-orange-400">Mars AI * Next Home</h1>
     </div>
     <div class="flex items-center gap-4">
@@ -77,8 +71,119 @@
       </button>
     </div>
   </header>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10">
+    <h2 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">Talk to AI That Understands You</h2>
+    <p id="heroText" class="text-lg text-gray-300 max-w-xl mb-8">Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.</p>
+    <a href="#features" class="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all">
+      Explore Features
+    </a>
+  </section>
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-950 bg-opacity-80 text-center px-4 relative z-10">
+    <h3 id="featuresTitle" class="text-3xl font-bold mb-8 text-orange-400">What Do You Want to Do?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 id="infoTitle" class="text-xl font-semibold text-white mb-2">Information</h4>
+        <p id="infoText" class="text-gray-400">Get answers, explanations, and step-by-step help from AI.</p>
+      </a>
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 id="creativeTitle" class="text-xl font-semibold text-white mb-2">Creative Mode</h4>
+        <p id="creativeText" class="text-gray-400">Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.</p>
+      </a>
+      <a href="#chatbot" class="bg-gray-800 p-6 rounded-2xl hover:bg-gray-700 transition-all shadow-xl">
+        <h4 id="randomTitle" class="text-xl font-semibold text-white mb-2">Random Talk</h4>
+        <p id="randomText" class="text-gray-400">Just vibe, joke, or talk nonsense with your personal Mars AI buddy.</p>
+      </a>
+    </div>
+  </section>
+  <!-- Chatbot Section -->
+  <section id="chatbot" class="py-20 bg-gray-900 bg-opacity-90 text-center px-4 relative z-10">
+    <h3 id="chatbotTitle" class="text-3xl font-bold mb-4 text-orange-400">Your AI Is Ready</h3>
+    <p id="chatbotText" class="text-gray-300 mb-10">Start chatting below. It’s fast, responsive, and available 24/7.</p>
+    <div class="w-full max-w-2xl mx-auto bg-gray-800 rounded-2xl p-6 shadow-xl">
+      <iframe
+        src="https://cdn.botpress.cloud/webchat/v2.4/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/01/19/20250301195959-44MADPHB.json"
+        width="100%" height="500"
+        class="rounded-xl border-0"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-800 bg-opacity-80 text-center p-6 text-gray-400 relative z-10">
+    <p id="footerText">Made by the group Omiros Tech/AI • Powered by Botpress • Shkolla 9 vjeçare Omiros</p>
+  </footer>
+  <!-- Language Switch Script -->
+  <script>
+    const languageSwitch = document.getElementById('languageSwitch');
+    let currentLanguage = 'en';
 
-  <!-- ...rest of the code remains unchanged... -->
+    const translations = {
+      en: {
+        title: "Mars AI * Next Home",
+        homeLink: "Home",
+        featuresLink: "AI Features",
+        chatbotLink: "Chatbot",
+        heroTitle: "Talk to AI That Understands You",
+        heroText: "Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.",
+        featuresTitle: "What Do You Want to Do?",
+        infoTitle: "Information",
+        infoText: "Get answers, explanations, and step-by-step help from AI.",
+        creativeTitle: "Creative Mode",
+        creativeText: "Generate stories, ideas, and fun content about astronomy or basic things with your AI companion.",
+        randomTitle: "Random Talk",
+        randomText: "Just vibe, joke, or talk nonsense with your personal Mars AI buddy.",
+        chatbotTitle: "Your AI Is Ready",
+        chatbotText: "Start chatting below. It’s fast, responsive, and available 24/7.",
+        footerText: "Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros"
+      },
+      al: {
+        title: "Mars AI * Shtëpia e Re",
+        homeLink: "Kryefaqja",
+        featuresLink: "Veçoritë e AI",
+        chatbotLink: "Chatbot",
+        heroTitle: "Fol me AI që të kupton",
+        heroText: "Zgjidh si dëshiron të ndërveprosh — argëtues, ndihmues, ose thjesht i çuditshëm. Mundësuar nga Botpress.",
+        featuresTitle: "Çfarë dëshiron të bësh?",
+        infoTitle: "Informacion",
+        infoText: "Merr përgjigje, shpjegime dhe ndihmë hap pas hapi nga AI.",
+        creativeTitle: "Mënyra Krijuese",
+        creativeText: "Gjenero tregime, ide dhe përmbajtje argëtuese për astronominë ose tema të ndryshme me AI.",
+        randomTitle: "Bisedë e Rastësishme",
+        randomText: "Vetëm bisedo, bëj shaka, ose flisni gjëra të çuditshme me shokun tënd Mars AI.",
+        chatbotTitle: "AI-ja jote është gati",
+        chatbotText: "Fillo bisedën më poshtë. Është e shpejtë, reaguese dhe e disponueshme 24/7.",
+        footerText: "Krijuar nga grupi Shtëpia e Re • Mundësuar nga Botpress • Shkolla 9-vjeçare Omiros"
+      }
+    };
 
+    function updateTexts(lang) {
+      const t = translations[lang];
+      document.getElementById('title').innerText = t.title;
+      document.getElementById('homeLink').innerText = t.homeLink;
+      document.getElementById('featuresLink').innerText = t.featuresLink;
+      document.getElementById('chatbotLink').innerText = t.chatbotLink;
+      document.getElementById('heroTitle').innerText = t.heroTitle;
+      document.getElementById('heroText').innerText = t.heroText;
+      document.getElementById('featuresTitle').innerText = t.featuresTitle;
+      document.getElementById('infoTitle').innerText = t.infoTitle;
+      document.getElementById('infoText').innerText = t.infoText;
+      document.getElementById('creativeTitle').innerText = t.creativeTitle;
+      document.getElementById('creativeText').innerText = t.creativeText;
+      document.getElementById('randomTitle').innerText = t.randomTitle;
+      document.getElementById('randomText').innerText = t.randomText;
+      document.getElementById('chatbotTitle').innerText = t.chatbotTitle;
+      document.getElementById('chatbotText').innerText = t.chatbotText;
+      document.getElementById('footerText').innerText = t.footerText;
+    }
+
+    languageSwitch.addEventListener('click', () => {
+      currentLanguage = currentLanguage === 'en' ? 'al' : 'en';
+      updateTexts(currentLanguage);
+    });
+
+    updateTexts(currentLanguage);
+  </script>
 </body>
 </html>
