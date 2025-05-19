@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mars AI Hub</title>
+  <link rel="icon" href="https://i.ibb.co/QzsgnyX/IMG-20250519-WA0003.webp" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,7 +19,6 @@
     .transition-theme {
       transition: background-color 0.5s, color 0.5s;
     }
-
     @keyframes orbit {
       0% {
         transform: translate(-50%, 0) rotate(0deg) translateX(150px) rotate(0deg);
@@ -27,7 +27,6 @@
         transform: translate(-50%, 0) rotate(360deg) translateX(150px) rotate(-360deg);
       }
     }
-
     .mars-fly, .astro {
       position: fixed;
       top: 10%;
@@ -41,21 +40,17 @@
   </style>
 </head>
 <body class="text-white font-sans transition-theme relative" style="background-image: url('https://i.ibb.co/zhMFB2pC/IMG-20250519-WA0002.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
-  <!-- Blurred Background Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md z-0"></div>
-  <!-- Mars Flying Object -->
   <div class="mars-fly z-10">
     <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
   </div>
-  <!-- Astronaut Flying Object -->
   <div class="astro z-10">
     <img src="https://i.ibb.co/sdJN5JKw/1000008058-removebg-preview.webp" alt="Flying Astro" class="w-full h-full object-contain">
   </div>
-  <!-- Header -->
   <header class="p-6 flex items-center justify-between bg-gray-800 bg-opacity-80 shadow-lg relative z-10">
     <div class="flex items-center gap-3">
       <img src="https://i.ibb.co/4ggS9z37/IMG-20250506-WA0001.webp" alt="Mars Static" class="w-10 h-10 object-cover rounded-full">
-      <h1 id="title" class="text-3xl font-bold text-orange-400">Mars AI * Next Home</h1>
+      <h1 id="title" class="text-3xl font-bold text-orange-400">Mars AI Hub</h1>
     </div>
     <div class="flex items-center gap-4">
       <nav class="space-x-4 hidden md:block">
@@ -71,7 +66,6 @@
       </button>
     </div>
   </header>
-  <!-- Hero Section -->
   <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10">
     <h2 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">Talk to AI That Understands You</h2>
     <p id="heroText" class="text-lg text-gray-300 max-w-xl mb-8">Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.</p>
@@ -79,7 +73,6 @@
       Explore Features
     </a>
   </section>
-  <!-- Features Section -->
   <section id="features" class="py-20 bg-gray-950 bg-opacity-80 text-center px-4 relative z-10">
     <h3 id="featuresTitle" class="text-3xl font-bold mb-8 text-orange-400">What Do You Want to Do?</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -97,7 +90,6 @@
       </a>
     </div>
   </section>
-  <!-- Chatbot Section -->
   <section id="chatbot" class="py-20 bg-gray-900 bg-opacity-90 text-center px-4 relative z-10">
     <h3 id="chatbotTitle" class="text-3xl font-bold mb-4 text-orange-400">Your AI Is Ready</h3>
     <p id="chatbotText" class="text-gray-300 mb-10">Start chatting below. It’s fast, responsive, and available 24/7.</p>
@@ -110,18 +102,16 @@
       ></iframe>
     </div>
   </section>
-  <!-- Footer -->
   <footer class="bg-gray-800 bg-opacity-80 text-center p-6 text-gray-400 relative z-10">
     <p id="footerText">Made by the group Omiros Tech/AI • Powered by Botpress • Shkolla 9 vjeçare Omiros</p>
   </footer>
-  <!-- Language Switch Script -->
   <script>
     const languageSwitch = document.getElementById('languageSwitch');
     let currentLanguage = 'en';
 
     const translations = {
       en: {
-        title: "Mars AI * Next Home",
+        title: "Mars AI Hub",
         homeLink: "Home",
         featuresLink: "AI Features",
         chatbotLink: "Chatbot",
@@ -136,10 +126,10 @@
         randomText: "Just vibe, joke, or talk nonsense with your personal Mars AI buddy.",
         chatbotTitle: "Your AI Is Ready",
         chatbotText: "Start chatting below. It’s fast, responsive, and available 24/7.",
-        footerText: "Made by the group Next Home • Powered by Botpress • Shkolla 9 vjeçare Omiros"
+        footerText: "Made by the group Omiros Tech/AI • Powered by Botpress • Shkolla 9 vjeçare Omiros"
       },
       al: {
-        title: "Mars AI * Shtëpia e Re",
+        title: "Mars AI Hub",
         homeLink: "Kryefaqja",
         featuresLink: "Veçoritë e AI",
         chatbotLink: "Chatbot",
@@ -154,7 +144,7 @@
         randomText: "Vetëm bisedo, bëj shaka, ose flisni gjëra të çuditshme me shokun tënd Mars AI.",
         chatbotTitle: "AI-ja jote është gati",
         chatbotText: "Fillo bisedën më poshtë. Është e shpejtë, reaguese dhe e disponueshme 24/7.",
-        footerText: "Krijuar nga grupi Shtëpia e Re • Mundësuar nga Botpress • Shkolla 9-vjeçare Omiros"
+        footerText: "Krijuar nga grupi Omiros Tech/AI • Mundësuar nga Botpress • Shkolla 9-vjeçare Omiros"
       }
     };
 
