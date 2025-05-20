@@ -41,12 +41,15 @@
 </head>
 <body class="text-white font-sans transition-theme relative" style="background-image: url('https://i.ibb.co/zhMFB2pC/IMG-20250519-WA0002.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
   <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md z-0"></div>
+
+  <!-- Orbiting images -->
   <div class="mars-fly z-10">
     <img src="https://i.ibb.co/KzhsFCHb/1000008054-removebg-preview.webp" alt="Flying Mars" class="w-full h-full object-contain">
   </div>
   <div class="astro z-10">
     <img src="https://i.ibb.co/sdJN5JKw/1000008058-removebg-preview.webp" alt="Flying Astro" class="w-full h-full object-contain">
   </div>
+
   <header class="p-6 flex items-center justify-between bg-gray-800 bg-opacity-80 shadow-lg relative z-10">
     <h1 id="title" class="text-3xl font-bold text-orange-400">Mars AI Hub</h1>
     <div class="flex items-center gap-4">
@@ -64,14 +67,16 @@
     </div>
   </header>
 
+  <!-- Home Section -->
   <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative z-10">
     <h2 id="heroTitle" class="text-4xl md:text-5xl font-bold mb-4">Are you ready for the trip of your life?</h2>
     <p id="heroText" class="text-lg text-gray-300 max-w-xl mb-8">Choose how you want to interact — fun, helpful, or just weird. Powered by Botpress.</p>
-    <a href="/mnt/data/earf.pdf" target="_blank" class="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all">
+    <button onclick="showPopup()" class="px-6 py-3 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all">
       Book your adventure
-    </a>
+    </button>
   </section>
 
+  <!-- Features Section -->
   <section id="features" class="py-20 bg-gray-950 bg-opacity-80 text-center px-4 relative z-10">
     <h3 id="featuresTitle" class="text-3xl font-bold mb-8 text-orange-400">What Do You Want to Do?</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -90,6 +95,7 @@
     </div>
   </section>
 
+  <!-- Chatbot Section -->
   <section id="chatbot" class="py-20 bg-gray-900 bg-opacity-90 text-center px-4 relative z-10">
     <h3 id="chatbotTitle" class="text-3xl font-bold mb-4 text-orange-400">Your AI Is Ready</h3>
     <p id="chatbotText" class="text-gray-300 mb-10">Start chatting below. It’s fast, responsive, and available 24/7.</p>
@@ -103,10 +109,19 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="bg-gray-800 bg-opacity-80 text-center p-6 text-gray-400 relative z-10">
     <p id="footerText">Made by the group Omiros Tech/AI • Powered by Botpress • Shkolla 9 vjeçare Omiros</p>
   </footer>
 
+  <!-- Popup Image Overlay -->
+  <div id="popupImage" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50 hidden">
+    <img src="https://i.ibb.co/XrPzNLQb/Screenshot-20250520-212420-One-Drive.webp" 
+         alt="Boarding Pass" 
+         class="w-96 rounded-xl shadow-xl transform scale-75 opacity-0 transition duration-500 ease-out">
+  </div>
+
+  <!-- Scripts -->
   <script>
     const languageSwitch = document.getElementById('languageSwitch');
     let currentLanguage = 'en';
@@ -176,6 +191,24 @@
     });
 
     updateTexts(currentLanguage);
+
+    // Popup function
+    function showPopup() {
+      const popup = document.getElementById('popupImage');
+      const img = popup.querySelector('img');
+      popup.classList.remove('hidden');
+      setTimeout(() => {
+        img.classList.remove('scale-75', 'opacity-0');
+        img.classList.add('scale-100', 'opacity-100');
+      }, 10);
+      setTimeout(() => {
+        img.classList.remove('scale-100', 'opacity-100');
+        img.classList.add('scale-75', 'opacity-0');
+      }, 3000);
+      setTimeout(() => {
+        popup.classList.add('hidden');
+      }, 3500);
+    }
   </script>
 </body>
 </html>
